@@ -1,0 +1,31 @@
+.bg {
+  height: 750px;
+  background: rgb(231, 231, 231);
+}
+.back {
+  height: 8%;
+  width: 10%;
+  font-size: 25px;
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
+}
+.buy-btn {
+  background-color: rgb(61, 61, 61);
+  color: white;
+  text-transform: capitalize;
+  font-size: 1.2vw;
+  border-radius: 20px;
+  padding: 13px;
+  font-weight: 600;
+  border: none;
+  margin: 20px;
+  cursor: pointer;
+  margin-bottom: 40px;
+  &:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+  }
+}

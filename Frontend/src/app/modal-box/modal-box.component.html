@@ -1,0 +1,14 @@
+<div *ngIf="show" class="modal">
+  <button class="close-btn" (click)="close()">x</button>
+  <h4>{{ number }}</h4>
+  <header class="header">
+    <h2>
+      {{ title }}
+    </h2>
+  </header>
+  <div class="modal-body">
+    <ng-content></ng-content>
+  </div>
+  <div class="modal-footer"></div>
+</div>
+<app-backdrop [show]="show" (clicked)="close()"></app-backdrop>

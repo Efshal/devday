@@ -1,0 +1,55 @@
+.bg {
+  height: 750px;
+  background: rgb(231, 231, 231);
+}
+.buy-btn {
+  background-color: rgb(61, 61, 61);
+  color: white;
+  text-transform: capitalize;
+  font-size: 1.2vw;
+  border-radius: 20px;
+  padding: 13px;
+  font-weight: 600;
+  border: none;
+  margin: 20px;
+  cursor: pointer;
+  margin-bottom: 40px;
+  &:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+  }
+}
+.back {
+  height: 8%;
+  width: 10%;
+  font-size: 25px;
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
+}
+.output {
+  text-align: center;
+  font-size: 1.2vw;
+  color: rgb(39, 39, 68);
+  margin-bottom: 10px;
+}
+.signin-btn {
+  font-size: x-large;
+  height: 60px;
+  background-color: rgb(46, 46, 46);
+  width: 93%;
+  display: block;
+  color: white;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border: 2px solid;
+  &:hover {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+  }
+}

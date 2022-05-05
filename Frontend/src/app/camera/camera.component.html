@@ -1,0 +1,34 @@
+<div class="bg" *ngIf="test; else check">
+  <button class="back" (click)="goback()">&#8592; Back</button>
+  <div *ngIf="isCameraExist; else noCameraExist">
+    <div style="text-align: center">
+      <div class="btn-group">
+        <button class="buy-btn" (click)="takeSnapshot()">Take Picture</button>
+        <button class="buy-btn" (click)="onOffWebCame()">Toggle Camera</button>
+        <button class="buy-btn" (click)="changeWebCame(true)">
+          Switch camera
+        </button>
+      </div>
+      <h3 *ngIf="timeLeft <= 10 && timeLeft > 0" style="margin-bottom: 20px">
+        {{ timeLeft }} Seconds Left
+      </h3>
+      <webcam
+        style="height: inherit; width: inherit"
+        [trigger]="triggerObservable"
+        (imageCapture)="handleImage($event)"
+        *ngIf="showWebcam"
+        [switchCamera]="nextWebcamObservable"
+      ></webcam>
+    </div>
+    <div *ngIf="errors.length > 0">
+      <h4>Error Messages:</h4>
+      <ul *ngFor="let error of errors">
+        <li>{{ error | json }}</li>
+      </ul>
+    </div>
+  </div>
+  <ng-template #noCameraExist> Camera device not available </ng-template>
+  <ng-template #CameraExist> Camera available </ng-template>
+</div>
+
+<ng-template #check> </ng-template>

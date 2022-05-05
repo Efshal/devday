@@ -1,0 +1,75 @@
+<div class="bg">
+  <app-camera (getPicture)="handleImage($event)"></app-camera>
+  <img id="refImage" src="assets/Ref_image.jpeg" style="display: none" />
+  <div style="display: flex">
+    <!-- <button class="back" (click)="goback()">&#8592; Back</button> -->
+    <div class="webcam-image" *ngIf="webcamImage">
+      <img
+        id="image"
+        [src]="webcamImage.imageAsDataUrl"
+        style="display: none"
+      />
+      <button class="buy-btn" (click)="loadAndPredict()">
+        Check your Body Measures
+      </button>
+    </div>
+
+    <app-modal-box
+      *ngIf="getimage"
+      [show]="getimage === 'true'"
+      title="Your Body Measures"
+      (closed)="getimage = false"
+    >
+      <p class="output">Height : {{ heightcm }}</p>
+      <p class="output">Shirt Length : {{ shirtLengthcm }}</p>
+      <p class="output">Arm Length : {{ armLengthcm }}</p>
+      <p class="output">Pant Length : {{ pantLengthcm }}</p>
+      <p class="output">Chest : {{ chest }}</p>
+      <p class="output">Waist : {{ waist }}</p>
+      <p class="output">Hips : {{ hips }}</p>
+      <p class="output">Shoulder : {{ shoulder }}</p>
+      <p class="output">Collar : {{ collar }}</p>
+      <div class="signin-button-row">
+        <button mat-button class="signin-btn" (click)="submit()">Thanks</button>
+      </div>
+    </app-modal-box>
+  </div>
+  <!-- <p-dialog
+    header=""
+    [(visible)]="measure"
+    [baseZIndex]="10000"
+    style="height: 100%"
+  >
+    <div
+      style="
+        width: 100%;
+        height: '40px';
+        background-color: rgb(204, 201, 201);
+        border-radius: 7px;
+        padding: 10px;
+      "
+    >
+      Body Measures in Cms
+    </div>
+    <br />
+    <div
+      style="
+        background-color: rgb(204, 201, 201);
+        padding: 20px;
+        border-radius: 20px;
+      "
+    >
+      <p>Height :{{ heightcm }}</p>
+      <p>Shirt Length :{{ shirtLengthcm }}</p>
+      <p>Arm Length :{{ armLengthcm }}</p>
+      <p>Pant Length :{{ pantLengthcm }}</p>
+      <p>Chest :{{ chest }}</p>
+      <p>Waist :{{ waist }}</p>
+      <p>Hips:{{ hips }}</p>
+      <p>Shoulder :{{ shoulder }}</p>
+      <p>Collar :{{ collar }}</p>
+    </div>
+
+    <ng-template pTemplate="footer"> </ng-template>
+  </p-dialog> -->
+</div>

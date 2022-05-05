@@ -1,0 +1,223 @@
+<div class="large-container">
+  <button class="back" (click)="goback()">&#8592; Back</button>
+  <button class="detail" (click)="show()">Enter your Body Details</button>
+  <app-modal-box
+    [show]="selectedType === 'initial'"
+    title="GENDER"
+    number="1/6"
+    (closed)="selectedType = ''"
+  >
+    <mat-form-field class="input-field" appearance="fill">
+      <input
+        [(ngModel)]="gender"
+        matInput
+        placeholder="0 = Male OR 1 = Female"
+      />
+    </mat-form-field>
+    <div class="signin-button-row">
+      <button mat-button class="signin-btn" (click)="nextgender()">NEXT</button>
+    </div>
+  </app-modal-box>
+  <app-modal-box
+    [show]="selectedType === 'gender'"
+    title="AGE"
+    number="2/6"
+    (closed)="selectedType = ''"
+  >
+    <mat-form-field class="input-field" appearance="fill">
+      <input [(ngModel)]="age" matInput placeholder="Age in years" />
+    </mat-form-field>
+    <div class="signin-button-row">
+      <button mat-button class="signin-btn" (click)="nextage()">NEXT</button>
+    </div>
+  </app-modal-box>
+
+  <app-modal-box
+    [show]="selectedType === 'age'"
+    title="WEIGHT"
+    number="3/6"
+    (closed)="selectedType = ''"
+  >
+    <mat-form-field class="input-field" appearance="fill">
+      <input [(ngModel)]="weight" matInput placeholder="Weight in pounds" />
+    </mat-form-field>
+    <div class="signin-button-row">
+      <button mat-button class="signin-btn" (click)="nextweight()">NEXT</button>
+    </div>
+  </app-modal-box>
+
+  <app-modal-box
+    [show]="selectedType === 'weight'"
+    title="HEIGHT"
+    number="4/6"
+    (closed)="selectedType = ''"
+  >
+    <mat-form-field class="input-field" appearance="fill">
+      <input [(ngModel)]="height" matInput placeholder="Height in cms" />
+    </mat-form-field>
+    <div class="signin-button-row">
+      <button mat-button class="signin-btn" (click)="nextheight()">NEXT</button>
+    </div>
+  </app-modal-box>
+
+  <app-modal-box
+    [show]="selectedType === 'height'"
+    title="HIP WAIST RATIO"
+    number="5/6"
+    (closed)="selectedType = ''"
+  >
+    <mat-form-field class="input-field" appearance="fill">
+      <input
+        [(ngModel)]="hipToWaistRatio"
+        matInput
+        placeholder="Select Ratio"
+      />
+    </mat-form-field>
+    <img
+      alt="Open Image For Reference"
+      class="img-40 rounded-circle"
+      style="width: 600px; height: 220px"
+      src="assets/ratio.jpeg"
+    />
+    <div class="signin-button-row">
+      <button mat-button class="signin-btn" (click)="nextratio()">NEXT</button>
+    </div>
+  </app-modal-box>
+
+  <app-modal-box
+    [show]="selectedType === 'ratio'"
+    title="BODY TYPE"
+    number="6/6"
+    (closed)="selectedType = ''"
+  >
+    <mat-form-field class="input-field" appearance="fill">
+      <input [(ngModel)]="bodyType" matInput placeholder="Select Type" />
+    </mat-form-field>
+    <img
+      alt="Open Image For Reference"
+      class="img-40 rounded-circle"
+      style="width: 600px; height: 220px"
+      src="assets/body.jpeg"
+    />
+    <div class="signin-button-row">
+      <button mat-button class="signin-btn" (click)="submit()">SUBMIT</button>
+    </div>
+  </app-modal-box>
+
+  <app-modal-box
+    [show]="selectedType === 'submit'"
+    title="SHIRT RECOMENDED"
+    (closed)="selectedType = ''"
+  >
+    <p class="output">{{ size }}</p>
+    <div style="text-align: center">
+      <img
+        alt="Open Image For Reference"
+        class="img-40 rounded-circle"
+        style="width: 300px; height: 300px"
+        src="assets/shirt_l.webp"
+      />
+    </div>
+    <div class="signin-button-row">
+      <button mat-button class="signin-btn" (click)="close()">Thanks</button>
+    </div>
+  </app-modal-box>
+</div>
+<!-- ################################################################################################################### -->
+<!-- <div class="form">
+  <div class="title">Welcome</div>
+  <div class="subtitle">Let's Predict Your Size</div>
+  <div style="display: inline-block; margin-right: 100px; width: 40%">
+    <div class="input-container ic2">
+      <input id="gender" class="input" [(ngModel)]="gender" placeholder="" />
+      <div class="cut cut-short"></div>
+      <label for="gender" class="placeholder">0 for male 1 for female</label>
+    </div>
+  </div>
+
+  <div style="display: inline-block; margin-right: 100px; width: 40%">
+    <div class="input-container ic2">
+      <input id="age" class="input" [(ngModel)]="age" placeholder=" " />
+      <div class="cut"></div>
+      <label for="age" class="placeholder">Age</label>
+    </div>
+  </div>
+  <br />
+  <div style="display: inline-block; margin-right: 100px; width: 40%">
+    <div class="input-container ic2">
+      <input id="height" class="input" [(ngModel)]="height" placeholder=" " />
+      <div class="cut cut-short"></div>
+      <label for="height" class="placeholder">height</label>
+    </div>
+  </div>
+  <div style="display: inline-block; margin-right: 100px; width: 40%">
+    <div class="input-container ic2">
+      <input id="weight" class="input" [(ngModel)]="weight" placeholder=" " />
+      <div class="cut"></div>
+      <label for="weight" class="placeholder">Weight</label>
+    </div>
+  </div>
+  <br />
+  <p style="color: white; margin-top: 50px; text-align: center">
+    Hip Waist Ratio Graph
+  </p>
+  <img
+    src="assets/graph.jpeg"
+    alt=""
+    style="width: 50%; height: 20%; margin: 10px 260px 0"
+  />
+  <div class="input-container ic2">
+    <input
+      id="hipWaist"
+      class="input"
+      [(ngModel)]="hipToWaistRatio"
+      placeholder=" "
+    />
+    <div class="cut cut-short"></div>
+    <label for="Hip Waist Ratio" class="placeholder">Hip Waist ratio</label>
+  </div>
+
+  <p style="color: white; margin-top: 50px; text-align: center">
+    Body Type Graph
+  </p>
+  <img
+    src="assets/ratio.jpeg"
+    alt=""
+    style="width: 50%; height: 20%; margin: 10px 260px 0"
+  />
+  <div class="input-container ic2">
+    <input id="bodyType" class="input" [(ngModel)]="bodyType" placeholder=" " />
+    <div class="cut cut-short"></div>
+    <label for="Body Type" class="placeholder">Body Type</label>
+  </div>
+
+  <button type="text" class="submit" (click)="prediction()">Submit</button>
+   <h1 style="color: white; text-align: center">{{ size }}</h1> -->
+<!-- </div> -->
+
+<!-- 
+<div style="background-color: red">
+  <p-dialog header="" [(visible)]="makeoffer" [baseZIndex]="10000">
+    <div
+      style="
+        width: 100%;
+        height: '40px';
+        background-color: rgb(240, 240, 240);
+        border-radius: 7px;
+        padding: 10px;
+      "
+    >
+      Your Predicted Size: <span>{{ size }}</span>
+    </div>
+    <br />
+    <div>
+      <img
+        src="assets/shirt_l.webp"
+        alt=""
+        style="height: 200px; width: 200px"
+      />
+    </div>
+
+    <ng-template pTemplate="footer"> </ng-template>
+  </p-dialog>
+</div> -->
