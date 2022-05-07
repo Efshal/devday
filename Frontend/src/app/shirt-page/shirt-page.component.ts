@@ -27,6 +27,6 @@ export class ShirtPageComponent implements OnInit {
   }
   tryon() {
     console.log('ok');
-    this.router.navigateByUrl('predict');
+    this.router.navigateByUrl('try-room');
   }
 }

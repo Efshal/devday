@@ -22,6 +22,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BackdropComponent } from './backdrop/backdrop.component';
 import { ModalBoxComponent } from './modal-box/modal-box.component';
+import { TryRoomComponent } from './try-room/try-room.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { ModalBoxComponent } from './modal-box/modal-box.component';
     ImageComponent,
     BackdropComponent,
     ModalBoxComponent,
+    TryRoomComponent,
   ],
   imports: [
     BrowserModule,
