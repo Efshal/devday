@@ -46,7 +46,10 @@ export class PredictComponent implements OnInit {
       height: this.height,
     };
     await this.http
-      .post<any>('http://127.0.0.1:5000/BodyMeasurements', body)
+      .post<any>(
+        'https://powerful-tundra-12370.herokuapp.com/BodyMeasurements',
+        body
+      )
       .subscribe({
         next: (data) => {
           console.log('here at data');
