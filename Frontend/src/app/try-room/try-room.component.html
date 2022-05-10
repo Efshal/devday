@@ -6,7 +6,7 @@
     </div>
     <div class="div2" style="height: 560px; width: 640px">
       <div class="container">
-        <video playsinline autoplay="true" width="640" height="480"></video>
+        <!-- <video playsinline autoplay="true" width="640" height="480"></video> -->
         <canvas width="640" height="480"></canvas>
       </div>
     </div>
@@ -15,8 +15,24 @@
     </div>
   </section>
   <div class="middle">
-    <h3>Price</h3>
-    <div>plus minus</div>
+    <h3>Price {{ pr }}</h3>
+    <p>
+      <button
+        type="button"
+        class="btn btn-primary btn-circle btn-sm"
+        (click)="calcleft()"
+      >
+        -
+      </button>
+      <span style="font-size: 20px">{{ cartvalue }}</span>
+      <button
+        type="button"
+        class="btn btn-primary btn-circle btn-sm"
+        (click)="calcright()"
+      >
+        +
+      </button>
+    </p>
   </div>
   <div class="middle">
     <button type="button" class="btn">add to cart</button>

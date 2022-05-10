@@ -1,5 +1,5 @@
 .bg {
-  height: 780px;
+  height: 720px;
   background: rgb(231, 231, 231);
 }
 .bg > .back {
@@ -75,4 +75,15 @@ canvas {
 canvas,
 video {
   transform: scaleX(-1);
+}
+.btn-circle.btn-sm {
+  width: 25px;
+  height: 25px;
+  border-radius: 15px;
+  font-size: 20px;
+  margin: 10px;
+  text-align: center;
+  background-color: white;
+  border: none;
+  color: blue;
 }

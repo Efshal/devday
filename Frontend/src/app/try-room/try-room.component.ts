@@ -12,8 +12,8 @@ let shirts = [
   '../../assets/shirt1.png',
   '../../assets/shirt2.png',
   '../../assets/shirt3.png',
-  '../../assets/shirt4.png',
 ];
+
 let Body = shirts[index];
 let body = new Image();
 body.src = Body;
@@ -117,9 +117,12 @@ class Skeleton {
 @Component({
   selector: 'app-try-room',
   templateUrl: './try-room.component.html',
-  styleUrls: ['./try-room.component.css'],
+  styleUrls: ['./try-room.component.scss'],
 })
 export class TryRoomComponent implements AfterViewInit {
+  price = [2000, 3000, 3500, 4000];
+  pr = this.price[index];
+  cartvalue = 0;
   canvasEl: any;
   ctx: any;
   constructor(private readonly router: Router) {}
@@ -192,11 +195,11 @@ export class TryRoomComponent implements AfterViewInit {
 
   changeLeft() {
     index -= 1;
-    if (index == 5) {
-      index = -1;
+    if (index == -1) {
+      index = 3;
     }
-    index = 4;
     Body = shirts[index];
+    this.pr = this.price[index];
     body = new Image();
     body.src = Body;
     this.start();
@@ -204,12 +207,22 @@ export class TryRoomComponent implements AfterViewInit {
 
   changeRight() {
     index += 1;
-    if (index == 5) {
+    if (index == 4) {
       index = 0;
     }
     Body = shirts[index];
+    this.pr = this.price[index];
     body = new Image();
     body.src = Body;
     this.start();
+  }
+  calcright() {
+    this.cartvalue += 1;
+  }
+  calcleft() {
+    if (this.cartvalue > 0) {
+      this.cartvalue -= 1;
+    }
+    this.cartvalue = 0;
   }
 }
