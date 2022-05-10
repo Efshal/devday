@@ -1,4 +1,25 @@
-<div class="container">
-  <video playsinline autoplay="true" width="640" height="480"></video>
-  <canvas width="640" height="480"></canvas>
+<div class="bg">
+  <button class="back" (click)="goBack()">&#8592; Back</button>
+  <section>
+    <div class="div2" style="margin-left: auto; margin-right: 20px">
+      <i class="fas fa-chevron-circle-left" (click)="changeLeft()"></i>
+    </div>
+    <div class="div2" style="height: 560px; width: 640px">
+      <div class="container">
+        <video playsinline autoplay="true" width="640" height="480"></video>
+        <canvas width="640" height="480"></canvas>
+      </div>
+    </div>
+    <div class="div2" style="margin-right: auto; margin-left: 20px">
+      <i class="fas fa-chevron-circle-right" (click)="changeRight()"></i>
+    </div>
+  </section>
+  <div class="middle">
+    <h3>Price</h3>
+    <div>plus minus</div>
+  </div>
+  <div class="middle">
+    <button type="button" class="btn">add to cart</button>
+    <button type="button" class="btn">buy nft</button>
+  </div>
 </div>

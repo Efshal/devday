@@ -1,3 +1,13 @@
+.bg {
+  height: 780px;
+  background: rgb(231, 231, 231);
+}
+.bg > .back {
+  height: 8%;
+  width: 10%;
+  font-size: 25px;
+  cursor: pointer;
+}
 .container {
   /* position: relative; */
   width: 640px;
@@ -6,6 +16,51 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+section {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+/* .div2 {
+  width: 100px;
+} */
+
+.fas {
+  font-size: 80px;
+  color: blue;
+  padding-top: 250px;
+}
+
+.fas:hover {
+  color: green;
+  cursor: pointer;
+}
+
+.middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.div3 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn {
+  height: 40px;
+  width: 100px;
+  background-color: blue;
+  color: white;
+}
+
+a {
+  display: inline-block;
+  border-radius: 50%;
 }
 
 canvas {

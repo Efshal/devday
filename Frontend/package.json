@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "aws-dep": "aws s3 sync dist/vatr/ s3://efshal-vatr"
   },
   "private": true,
   "dependencies": {
@@ -15,6 +16,7 @@
     "@angular/common": "~13.3.0",
     "@angular/compiler": "~13.3.0",
     "@angular/core": "~13.3.0",
+    "@angular/fire": "^7.3.0",
     "@angular/forms": "~13.3.0",
     "@angular/material": "^13.3.0",
     "@angular/platform-browser": "~13.3.0",
@@ -27,6 +29,7 @@
     "@tensorflow/tfjs-converter": "^3.14.0",
     "@tensorflow/tfjs-core": "^3.14.0",
     "@types/gsap": "^3.0.0",
+    "firebase": "^9.8.0",
     "gsap": "^3.9.1",
     "ngx-webcam": "^0.4.1",
     "primeicons": "^5.0.0",

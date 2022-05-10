@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { MyserviceService } from '../myservice.service';
 import { Router } from '@angular/router';
 
@@ -45,11 +45,18 @@ export class PredictComponent implements OnInit {
       bodyType: this.bodyType,
       height: this.height,
     };
+    const params = new HttpParams()
+      .set('age', this.age)
+      .set('gender', this.gender)
+      .set('weight', this.weight)
+      .set('hipWaistRatio', this.hipToWaistRatio)
+      .set('bodyType', this.bodyType)
+      .set('height', this.height);
     await this.http
-      .post<any>(
-        'https://powerful-tundra-12370.herokuapp.com/BodyMeasurements',
-        body
-      )
+      .get<any>('https://young-ravine-19931.herokuapp.com/BodyMeasurements', {
+        // .get<any>('http://localhost:5000/BodyMeasurements', {
+        params: params,
+      })
       .subscribe({
         next: (data) => {
           console.log('here at data');

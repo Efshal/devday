@@ -1,15 +1,22 @@
 import { Pose } from '@tensorflow-models/pose-detection';
 import { getAngle, getDistance, getMiddle } from './vectors';
-
+import { TryRoomComponent } from './try-room.component';
 // Skeleton parts
-let Body = '../../assets/arBody.png';
+// let Body = '../../assets/shirt1.png';
 
 // Load the skeleton parts
-const body = new Image();
-body.src = Body;
+// const body = new Image();
+// body.src = Body;
 
 export class Skeleton {
-  constructor(private ctx: CanvasRenderingContext2D) {}
+  constructor(
+    private ctx: CanvasRenderingContext2D,
+    private tryRoom: TryRoomComponent
+  ) {
+    let Body = this.tryRoom.Body;
+    const body = new Image();
+    body.src = Body;
+  }
 
   private drawBody(pose: Pose) {
     const leftShoulder = pose.keypoints.find(
