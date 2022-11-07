@@ -53,8 +53,11 @@ export class PredictComponent implements OnInit {
       .set('bodyType', this.bodyType)
       .set('height', this.height);
     await this.http
-      .get<any>('https://young-ravine-19931.herokuapp.com/BodyMeasurements', {
-        // .get<any>('http://localhost:5000/BodyMeasurements', {
+      // .get<any>('https://young-ravine-19931.herokuapp.com/BodyMeasurements', {
+      // .get<any>(
+      //   'http://devopsprojectbackend-env.eba-hz8jmwbk.us-east-1.elasticbeanstalk.com/',
+      //   {
+      .get<any>('http://localhost:5000/BodyMeasurements', {
         params: params,
       })
       .subscribe({
@@ -98,6 +101,11 @@ export class PredictComponent implements OnInit {
     this.prediction();
   }
   close() {
+    this.selectedType = 'submit';
+  }
+
+  bodymeasure() {
     this.selectedType = '';
+    this.router.navigateByUrl('image');
   }
 }

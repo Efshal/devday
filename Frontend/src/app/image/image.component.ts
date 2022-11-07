@@ -28,6 +28,8 @@ export class ImageComponent implements OnInit {
   hips: any;
   shoulder: any;
   collar: any;
+  inseam: any;
+
   measure: boolean | false = false;
   webcamImage: WebcamImage | undefined;
   Known_distance = 76.2;
@@ -40,7 +42,8 @@ export class ImageComponent implements OnInit {
 
   ngOnInit(): void {
     this.size = this.myservice.size;
-    console.log(this.size);
+    console.log('asdsad', this.size);
+    this.inseam = this.size['inseam'];
     this.chest = this.size['chest'];
     this.waist = this.size['wasit'];
     this.hips = this.size['hip'];
@@ -121,6 +124,11 @@ export class ImageComponent implements OnInit {
     this.hips = this.size['hip'];
     this.shoulder = this.size['shoulder'];
     this.collar = this.size['collar'];
+    this.inseam = this.size['inseam'];
+
+    this.shirtLengthcm = (this.shirtLengthcm / 2.54).toFixed(2);
+    this.armLengthcm = (this.armLengthcm / 2.54).toFixed(2);
+
     console.log(myX);
     console.log('shirt length predicted: ', (shirtLength / 37.79) * myX);
     // this.bodymeasure();

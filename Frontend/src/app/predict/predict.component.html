@@ -53,7 +53,7 @@
     (closed)="selectedType = ''"
   >
     <mat-form-field class="input-field" appearance="fill">
-      <input [(ngModel)]="height" matInput placeholder="Height in cms" />
+      <input [(ngModel)]="height" matInput placeholder="Height in inches" />
     </mat-form-field>
     <div class="signin-button-row">
       <button mat-button class="signin-btn" (click)="nextheight()">NEXT</button>
@@ -104,7 +104,7 @@
     </div>
   </app-modal-box>
 
-  <app-modal-box
+  <!-- <app-modal-box
     [show]="selectedType === 'submit'"
     title="SHIRT RECOMENDED"
     (closed)="selectedType = ''"
@@ -120,6 +120,32 @@
     </div>
     <div class="signin-button-row">
       <button mat-button class="signin-btn" (click)="close()">Thanks</button>
+    </div>
+  </app-modal-box> -->
+
+  <app-modal-box
+    [show]="selectedType === 'submit'"
+    title="SHIRT RECOMENDED"
+    (closed)="selectedType = ''"
+  >
+    <p class="output">{{ size }}</p>
+    <div style="text-align: center">
+      <img
+        alt="Open Image For Reference"
+        class="img-40 rounded-circle"
+        style="width: 300px; height: 300px"
+        src="assets/shirt_l.webp"
+      />
+    </div>
+    <div class="signin-button-row">
+      <button
+        mat-button
+        class="signin-btn"
+        (click)="bodymeasure()"
+        style="font-size: 19px"
+      >
+        Calculate Body Measurements
+      </button>
     </div>
   </app-modal-box>
 </div>
